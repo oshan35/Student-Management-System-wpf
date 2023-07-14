@@ -12,17 +12,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Personal_Project.ViewModels;
 
 namespace Personal_Project.Views
 {
     /// <summary>
     /// Interaction logic for StudentRegistrationView.xaml
     /// </summary>
-    public partial class StudentRegistrationView : Page
+    public partial class StudentRegistrationView : Window
     {
-        public StudentRegistrationView()
+        public StudentRegistrationView(StudentRegistrationVM vm)
         {
             InitializeComponent();
+            DataContext = vm;
+            vm.CloseAction = () => Close();
+            
         }
     }
 }

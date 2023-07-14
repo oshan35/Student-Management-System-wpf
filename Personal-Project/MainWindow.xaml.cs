@@ -1,4 +1,5 @@
-﻿using Personal_Project.Views;
+﻿using Personal_Project.Models;
+using Personal_Project.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Personal_Project.Views;
+
 
 namespace Personal_Project
 {
@@ -24,9 +25,36 @@ namespace Personal_Project
     {
         public MainWindow()
         {
-            this.Hide();
-            UserView userview = new UserView();
-            userview.Show();
+            InitializeComponent();
         }
+
+
+        private void CheckBox_Click(object sender, RoutedEventArgs e)
+        {
+            var checkBox = (CheckBox)sender;
+            var dataGridRow = FindVisualParent<DataGridRow>(checkBox);
+
+            if (dataGridRow != null && checkBox.IsChecked == true)
+            {
+                // Unselect all other rows
+                foreach (var item in membersDataGrid.Items)
+                {
+                    var row = (DataGridRow)membersDataGrid.ItemContainerGenerator.ContainerFromItem(item);
+                    if (row != dataGridRow)
+                        row.IsSelected = false;
+                }
+
+
+            }
+        }
+
+        private static T FindVisualParent<T>(DependencyObject child) where T : DependencyObject
+        {
+            var parentObject = VisualTreeHelper.GetParent(child);
+            if (parentObject == null) return null;
+            var parent = parentObject as T;
+            return parent ?? FindVisualParent<T>(parentObject);
+        }
+
     }
 }

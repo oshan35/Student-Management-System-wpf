@@ -10,6 +10,7 @@ using CommunityToolkit.Mvvm.Input;
 using Avalonia.Controls;
 using System.Windows;
 using Microsoft.Win32;
+using Personal_Project.Views;
 
 
 
@@ -41,23 +42,17 @@ namespace Personal_Project.ViewModels
         [ObservableProperty]
         public string department;
 
-        public static Student student;
+        public Student student1;
 
-        public StudentRegistrationVM(Student student)
-        {
-            firstname = student.firstname;
-            lastname = student.lastname;
-            age = student.age;
-            image = student.image;
-            DateOfBirth = student.dateOfBirth;
-            email = student.email;
-            gpa = student.gpa;
-        }
+
+        public Action CloseAction { get; internal set; }
+
+
 
 
         public StudentRegistrationVM()
         {
-
+            //studentList == new ObservableCollection<Student>;
         }
 
         [RelayCommand]
@@ -77,11 +72,12 @@ namespace Personal_Project.ViewModels
         [RelayCommand]
         public void addStudent()
         {
+           
             gpa = validateGPA(gpa);
             dateOfBirth = validateDateOfBirth(dateOfBirth);
             age = validateAge(age);
-
-            student = new Student()
+           
+            student1 = new Student()
             {
                 firstname = Firstname,
                 lastname = Lastname,
@@ -91,6 +87,15 @@ namespace Personal_Project.ViewModels
                 email = Email,
                 gpa = Gpa
             };
+
+            if(student1 != null)
+            {
+                CloseAction();
+
+            }
+
+            Application.Current.MainWindow.Show();
+
 
         }
 

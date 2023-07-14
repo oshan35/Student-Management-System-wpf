@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Personal_Project.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,29 +20,23 @@ namespace Personal_Project.Views
     /// </summary>
     public partial class UserView : Window
     {
+
+        public StudentDataView studentDataView;
+
         public UserView()
         {
             InitializeComponent();
 
-            MainContentFrame.Navigate(new StudentDataView());
+            studentDataView = new StudentDataView();
+
+            
         }
 
      
 
-        private void ShowAddUserView(object sender, RoutedEventArgs e)
-        {
-            MainContentFrame.Navigate(new StudentRegistrationView());
-        }
 
-        private void ShowEditUserView(object sender, RoutedEventArgs e)
-        {
-            MainContentFrame.Navigate(new EditView());
-        }
 
-        private void ShowStudentDataView(object sender, RoutedEventArgs e)
-        {
-            MainContentFrame.Navigate(new StudentDataView());
-        }
+
 
         private void CloseBtn(object sender, RoutedEventArgs e)
         {

@@ -4,12 +4,15 @@
         xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Personal_Project.Views"
+        xmlns:local="clr-namespace:Personal_Project.ViewModels"
         mc:Ignorable="d"
         
         Height="700" Width="1000" WindowStartupLocation="CenterScreen">
 
-
+    <Window.DataContext>
+        <local:UserVM/>
+    </Window.DataContext>
+    
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BoolToVis" />
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
@@ -17,70 +20,104 @@
 
     <Border Background="#EFF2F7">
         <Grid >
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <!--Left Menu-->
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
-
-                <!--Menu Icon-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+                
+            </Grid.RowDefinitions>
 
 
-                <Border Grid.Row="1" Background="#623ED0" >
-                    <DockPanel>
 
-                        <Separator Margin="25" Background="#7E5FDC" DockPanel.Dock="Top" Height="0.8"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
 
-                        <!--Menu Buttons-->
-                        <StackPanel DockPanel.Dock="Top" Margin="0 200 0 0">
-
-                            <Button Style="{StaticResource menuButton}" Click="ShowAddUserView">
-                                <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="PlusBox" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Add Student" />
-                                </StackPanel>
-                            </Button>
-
-                            <Button Style="{StaticResource menuButton}"  Click="ShowStudentDataView">
-                                <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="AccountMultipleCheckOutline" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Student List"/>
-                                </StackPanel>
-                            </Button>
-
-                            <Button Style="{StaticResource menuButton}"  Click="ShowEditUserView">
-                                <StackPanel Orientation="Horizontal">
-                                    <Icon:PackIconMaterial Kind="AccountEditOutline" Style="{StaticResource menuButtonIcon}"/>
-                                    <TextBlock Text="Edit Student"/>
-                                </StackPanel>
-                            </Button>
-                        </StackPanel>
-
-                        
-                    </DockPanel>
-                </Border>
-
-            </Grid>
-
-            <StackPanel Orientation="Horizontal" Grid.Column="1">
-                <Button Style="{StaticResource topButton}" Margin="700 -630 20 0" Click="CloseBtn">
-                   
+                <Button Style="{StaticResource addButton}"  Margin="0 0 0 0">
+                    <StackPanel Orientation="Horizontal">
+                        <Icon:PackIconMaterial Kind="PlusBox" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Add Student" />
+                    </StackPanel>
                 </Button>
-                <Button Style="{StaticResource topButton}" Margin="0 -630 0 0" Click="MinimizeBtn">
- 
+
+                <Button Style="{StaticResource addButton}"   Margin="20 0 0 0">
+                    <StackPanel Orientation="Horizontal">
+                        <Icon:PackIconMaterial Kind="AccountMultipleCheckOutline" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Edit Student"/>
+                    </StackPanel>
+                </Button>
+
+                <Button Style="{StaticResource addButton}"  Margin="20 0 0 0">
+                    <StackPanel Orientation="Horizontal">
+                        <Icon:PackIconMaterial Kind="DeleteAlertOutline" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="Delete Student"/>
+                    </StackPanel>
                 </Button>
 
 
             </StackPanel>
-            <Frame Grid.Column="1" Margin="30 60 20 20" x:Name="MainContentFrame" NavigationUIVisibility="Hidden"/>
-            <!--Main Section-->
+            <Grid  Grid.Row="1">
+                <Grid Grid.Column="1" Margin="30 20 20 20">
+                    <Grid.RowDefinitions>
 
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+
+                    </Grid.RowDefinitions>
+
+
+
+
+                    <!--Page Title-->
+                    <TextBlock Text="" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 10 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
+                    <TextBlock Text="{}" Grid.Row="1" FontSize="28" FontWeight="SemiBold" Margin="0 50 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
+
+                    <!--Add Button-->
+
+
+
+                    <!--Seprator-->
+                    <Separator Height="1" Grid.Row="2" Background="#DAE2EA" Margin="0 -1 0 10"/>
+
+
+
+                    <DataGrid  RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" ItemsSource="{Binding StudentList}">
+                        <DataGrid.Columns>
+
+                            <DataGridTemplateColumn Header="Name" IsReadOnly="True" Width="1.75*">
+
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Border Width="40" Height="40" CornerRadius="50" Margin="0 0 10 0" Background="#1098AD">
+
+                                                <Image Width="40" Height="40" Margin="1" Source="{Binding image}" />
+                                            </Border>
+
+                                            <TextBlock Text="{Binding  firstname}" VerticalAlignment="Center"/>
+                                            <TextBlock Text="  " VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding  lastname}" VerticalAlignment="Center"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+
+                            </DataGridTemplateColumn>
+
+
+                            <DataGridTextColumn Header="Department" Binding="{Binding department}" IsReadOnly="True" Width="0.6*"/>
+                            <DataGridTextColumn Header=" Email" Binding="{Binding email }" IsReadOnly="True" Width="1.25*"/>
+
+                            <DataGridTextColumn Header="Date Of Birth" Binding="{Binding dateOfBirth}" IsReadOnly="True" Width="*"/>
+                            <DataGridTextColumn Header="GPA" Binding="{Binding gpa}" IsReadOnly="True" Width="0.5*"/>
+
+                            <DataGridTextColumn Header="Age" Binding="{Binding age}" IsReadOnly="True" Width="0.5*"/>
+
+                        </DataGrid.Columns>
+
+
+                    </DataGrid>
+
+
+
+                </Grid>
+            </Grid>
 
         </Grid>
     </Border>

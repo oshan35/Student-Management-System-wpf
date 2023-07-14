@@ -4,10 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:Personal_Project.Views"
+      xmlns:local="clr-namespace:Personal_Project.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
       Title="StudentDataView">
+
+    <Page.DataContext>
+        <local:UserVM/>
+    </Page.DataContext>
 
 
     <Page.Resources>
@@ -39,32 +43,45 @@
             <Separator Height="1" Grid.Row="2" Background="#DAE2EA" Margin="0 -1 0 10"/>
 
 
-         
-            <ListView Grid.Row="3" x:Name="Listview"  Margin="0 20 0 0" Background="Transparent" Height="280" ItemsSource="{Binding Users,UpdateSourceTrigger=PropertyChanged}"
-                     SelectedItem="{Binding SelectedUser,UpdateSourceTrigger=PropertyChanged}">
-                <ListView.ItemTemplate >
-                    <DataTemplate>
-                        <Border Background="Transparent" BorderBrush="Black" BorderThickness="1"
-                                Padding="0.1" CornerRadius="5" Width="600" Height="35" >
-                            <StackPanel Width="600"  Background="Transparent" Orientation="Horizontal" >
 
-                                <Image Width="30" Height="30" Margin="1" Source="{Binding Image}" />
-                                <TextBlock Text="{Binding FirstName,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource ListView}" />
-                                <TextBlock Text="{Binding LastName,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource ListView}" />
-                                <TextBlock Text="{Binding Age,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource ListView}" />
-                                <TextBlock Text="{Binding DateOfBirth,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource ListView}" />
-                                <TextBlock Text="{Binding Email,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource ListView}" />
-                                <TextBlock Text="{Binding GPA,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource ListView}" />
+            <DataGrid  RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" ItemsSource="{Binding StudentList}">
+                <DataGrid.Columns>
 
-                            </StackPanel>
+                    <DataGridTemplateColumn Header="Name" IsReadOnly="True" Width="1.75*">
 
-                        </Border>
-                    </DataTemplate>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Border Width="40" Height="40" CornerRadius="50" Margin="0 0 10 0" Background="#1098AD">
+                                        
+                                        <Image Width="40" Height="40" Margin="1" Source="{Binding image}" />
+                                    </Border>
 
-                </ListView.ItemTemplate>
-            </ListView>
+                                    <TextBlock Text="{Binding  firstname}" VerticalAlignment="Center"/>
+                                    <TextBlock Text="  " VerticalAlignment="Center"/>
+                                    <TextBlock Text="{Binding  lastname}" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
 
-          
+                    </DataGridTemplateColumn>
+
+
+                    <DataGridTextColumn Header="Department" Binding="{Binding department}" IsReadOnly="True" Width="0.6*"/>
+                    <DataGridTextColumn Header=" Email" Binding="{Binding email }" IsReadOnly="True" Width="1.25*"/>
+
+                    <DataGridTextColumn Header="Date Of Birth" Binding="{Binding dateOfBirth}" IsReadOnly="True" Width="*"/>
+                    <DataGridTextColumn Header="GPA" Binding="{Binding gpa}" IsReadOnly="True" Width="0.5*"/>
+                    
+                    <DataGridTextColumn Header="Age" Binding="{Binding age}" IsReadOnly="True" Width="0.5*"/>
+
+                </DataGrid.Columns>
+
+
+            </DataGrid>
+
+
+
         </Grid>
     </Grid>
 </Page>

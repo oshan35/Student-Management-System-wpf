@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Personal_Project.ViewModels;
 
 namespace Personal_Project.Views
 {
@@ -20,6 +21,14 @@ namespace Personal_Project.Views
     /// </summary>
     public partial class StudentDataView : Page
     {
+        public StudentDataView(UserVM vm)
+        {
+            InitializeComponent();
+            DataContext = vm;
+          
+           
+        }
+
         public StudentDataView()
         {
             InitializeComponent();

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Personal_Project.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,16 +13,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Personal_Project.ViewModels;
 
 namespace Personal_Project.Views
 {
     /// <summary>
     /// Interaction logic for EditView.xaml
     /// </summary>
-    public partial class EditView : Page
+    public partial class EditView : Window
     {
-        public EditView()
+        public EditView(EditStudentVM vm)
         {
+            DataContext = vm;
             InitializeComponent();
         }
     }
