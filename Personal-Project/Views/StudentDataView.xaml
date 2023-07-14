@@ -53,6 +53,7 @@
                                 <TextBlock Text="{Binding LastName,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource ListView}" />
                                 <TextBlock Text="{Binding Age,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource ListView}" />
                                 <TextBlock Text="{Binding DateOfBirth,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource ListView}" />
+                                <TextBlock Text="{Binding Email,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource ListView}" />
                                 <TextBlock Text="{Binding GPA,UpdateSourceTrigger=PropertyChanged}"  Style="{StaticResource ListView}" />
 
                             </StackPanel>

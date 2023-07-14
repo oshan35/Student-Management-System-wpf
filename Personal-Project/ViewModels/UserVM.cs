@@ -23,7 +23,7 @@ namespace Personal_Project.ViewModels
         {
             studentList = new ObservableCollection<Student>();
             BitmapImage image1 = new BitmapImage(new Uri("Asserts/image.png", UriKind.Relative));
-            studentList.Add(new Student("oshan", "nettasinghe", image1, "1999-05-05", 2.72));
+            studentList.Add(new Student("oshan", "nettasinghe", 23, "CE" , image1, "1999-05-05", 2.72,"oshan@gmail.com"));
 
         }
 
