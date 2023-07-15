@@ -24,8 +24,10 @@ namespace Personal_Project.Views
     {
         public EditView(EditStudentVM vm)
         {
-            DataContext = vm;
             InitializeComponent();
+            DataContext = vm;
+            vm.CloseAction = () => Close();
+            
         }
     }
 }

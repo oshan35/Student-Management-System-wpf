@@ -26,7 +26,74 @@
                 <RowDefinition Height="*"/>
 
             </Grid.RowDefinitions>
+            <Canvas>
 
+                <Rectangle Width="172" Height="413" Fill="#9C85F7" Canvas.Left="987" Canvas.Top="88" RenderTransformOrigin="0.183,0.489" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="120"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+
+
+
+                <Rectangle Width="158" Height="518" Fill="#9C85F7" Canvas.Left="613" Canvas.Top="348" RenderTransformOrigin="0.183,0.489" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="120"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+
+                <Ellipse Width="157" Height="126" Fill="#9C85F7" RenderTransformOrigin="1.103,-0.158" Canvas.Top="656" Canvas.Left="238" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="120"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+                <Ellipse Width="168" Height="126" Fill="#9C85F7" RenderTransformOrigin="1.103,-0.158" Canvas.Top="383" Canvas.Left="645" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="120"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+                <Rectangle Width="204" Height="732" Fill="#9C85F7" Canvas.Left="294" Canvas.Top="-221" RenderTransformOrigin="0.183,0.489" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="120"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                <Ellipse Width="204" Height="126" Fill="#9C85F7" RenderTransformOrigin="1.103,-0.158" Canvas.Top="541" Canvas.Left="396" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleY="0.098"/>
+                            <RotateTransform Angle="120"/>
+                            <TranslateTransform X="-0.284" Y="-0.164"/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+
+            </Canvas>
 
 
             <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
@@ -45,7 +112,7 @@
                     </StackPanel>
                 </Button>
 
-                <Button Style="{StaticResource addButton}" Width="170" Height="50" Margin="20 0 0 0">
+                <Button Style="{StaticResource addButton}" Command="{Binding DeleteCommand}" Width="170" Height="50" Margin="20 0 0 0">
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <Icon:PackIconMaterial Kind="DeleteAlertOutline" Style="{StaticResource menuButtonIcon}"/>
                         <TextBlock Text="Delete Student"/>
@@ -54,8 +121,9 @@
 
 
             </StackPanel>
+
             <Separator Height="1" Grid.Row="1" Background="#DAE2EA" Margin="0 -1 0 10"/>
-            
+
             <Grid  Grid.Row="2">
                 <Grid Grid.Column="1" Margin="30 20 20 20">
                     <Grid.RowDefinitions>
@@ -69,19 +137,12 @@
 
 
                     <!--Page Title-->
-                    <TextBlock Text="" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 10 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
-                    <TextBlock Text="{}" Grid.Row="1" FontSize="28" FontWeight="SemiBold" Margin="0 50 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
-
-                    <!--Add Button-->
-
-
-
                     <!--Seprator-->
-                    
 
 
 
-                    <DataGrid  RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" ItemsSource="{Binding StudentList}" SelectedItem="{Binding SelectedStudent,UpdateSourceTrigger=PropertyChanged}">
+
+                    <DataGrid  RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" ItemsSource="{Binding StudentList}" SelectedItem="{Binding SelectedStudent, UpdateSourceTrigger=PropertyChanged}">
                         <DataGrid.Columns>
 
                             <DataGridTemplateColumn Header="Name" IsReadOnly="True" Width="1.75*">
@@ -89,14 +150,14 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Border Width="40" Height="40" CornerRadius="50" Margin="0 0 10 0" Background="#1098AD">
+                                            <Border Width="40" Height="40" CornerRadius="50" Margin="0 0 20 0" Background="#1098AD">
 
                                                 <Image Width="40" Height="40" Margin="1" Source="{Binding image}" />
                                             </Border>
 
-                                            <TextBlock Text="{Binding  firstname}" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding firstname}" VerticalAlignment="Center"/>
                                             <TextBlock Text="  " VerticalAlignment="Center"/>
-                                            <TextBlock Text="{Binding  lastname}" VerticalAlignment="Center"/>
+                                            <TextBlock Text="{Binding lastname}" VerticalAlignment="Center"/>
                                         </StackPanel>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
@@ -105,7 +166,7 @@
 
 
                             <DataGridTextColumn Header="Department" Binding="{Binding department}" IsReadOnly="True" Width="0.6*"/>
-                            <DataGridTextColumn Header=" Email" Binding="{Binding email }" IsReadOnly="True" Width="1.25*"/>
+                            <DataGridTextColumn Header=" Email" Binding="{Binding email}" IsReadOnly="True" Width="1.25*"/>
 
                             <DataGridTextColumn Header="Date Of Birth" Binding="{Binding dateOfBirth}" IsReadOnly="True" Width="*"/>
                             <DataGridTextColumn Header="GPA" Binding="{Binding gpa}" IsReadOnly="True" Width="0.5*"/>
@@ -116,6 +177,19 @@
 
 
                     </DataGrid>
+
+
+
+
+                    <!--Page Title-->
+                    <TextBlock Text="" Grid.Row="1" FontSize="32" FontWeight="SemiBold" Margin="0 10 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
+                    <TextBlock Text="" Grid.Row="1" FontSize="28" FontWeight="SemiBold" Margin="0 50 0 0" Foreground="#121518" HorizontalAlignment="Left"/>
+
+                    <!--Add Button-->
+
+
+
+                    <!--Seprator-->
 
 
 

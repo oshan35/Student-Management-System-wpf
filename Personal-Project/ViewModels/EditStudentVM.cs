@@ -39,20 +39,22 @@ namespace Personal_Project.ViewModels
         [ObservableProperty]
         public string department;
 
+        public Action CloseAction { get; internal set; }
+
         public Student editedStudent;
 
         public EditStudentVM(Student student)
         {
             editedStudent = student;
 
-            firstname = student.firstname;
-            lastname = student.lastname;
-            age = student.age;
-            image = student.image;
+            Firstname = student.firstname;
+            Lastname = student.lastname;
+            Age = student.age;
+            Image = student.image;
             DateOfBirth = student.dateOfBirth;
-            department = student.department;
-            email = student.email;
-            gpa = student.gpa;
+            Department = student.department;
+            Email = student.email;
+            Gpa = student.gpa;
         }
 
         public EditStudentVM()

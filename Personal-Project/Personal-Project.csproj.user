@@ -10,13 +10,7 @@
     <Compile Update="Views\EditView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\StudentDataView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Update="Views\StudentRegistrationView.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="Views\UserView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -27,13 +21,7 @@
     <Page Update="Views\EditView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\StudentDataView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
     <Page Update="Views\StudentRegistrationView.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Views\UserView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

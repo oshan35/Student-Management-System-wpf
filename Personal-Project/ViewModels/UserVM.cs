@@ -30,9 +30,13 @@ namespace Personal_Project.ViewModels
 
             studentList= new ObservableCollection<Student>();
             BitmapImage image1 = new BitmapImage(new Uri("Asserts/image.png", UriKind.Relative));
-            studentList.Add(new Student("oshan", "nettasinghe", 23, "CE" , image1, "1999-05-05", 2.72,"oshan@gmail.com"));
-            
-        
+            studentList.Add(new Student("oshan", "nettasinghe", 23, "CE", image1, "1999-05-05", 2.72, "oshan@gmail.com"));
+            BitmapImage image2 = new BitmapImage(new Uri("Asserts/image.png", UriKind.Relative));
+            studentList.Add(new Student("Nehara", "Tharushi", 23, "CE", image2, "2000-05-05", 3.92, "nehara@gmail.com"));
+            BitmapImage image3 = new BitmapImage(new Uri("Asserts/image.png", UriKind.Relative));
+            studentList.Add(new Student("Ashen", "Nethsara", 23, "CE", image3, "1999-08-08", 3.0, "ashen@gmail.com"));
+
+
         }
 
         [RelayCommand]
@@ -61,12 +65,13 @@ namespace Personal_Project.ViewModels
         [RelayCommand]
         public void Delete()
         {
-            if(selectedStudent != null)
+            if(SelectedStudent != null)
             {
+                
                 string name = SelectedStudent.firstname;
                 string last = SelectedStudent.lastname;
 
-                studentList.Remove(SelectedStudent);
+                StudentList.Remove(SelectedStudent);
 
                 MessageBox.Show($"{name} {last} is Deleted ");
             }
@@ -81,17 +86,17 @@ namespace Personal_Project.ViewModels
         public void EditStudent()
         {
 
-            if (selectedStudent !=null)
+            if (SelectedStudent !=null)
             {
                 var editVM = new EditStudentVM(SelectedStudent);
 
                 EditView window = new EditView(editVM);
                 window.ShowDialog();
 
-                int index = studentList.IndexOf(SelectedStudent);
+                int index = StudentList.IndexOf(SelectedStudent);
 
-                studentList.RemoveAt(index);
-                studentList.Insert(index, editVM.editedStudent);
+                StudentList.RemoveAt(index);
+                StudentList.Insert(index, editVM.editedStudent);
 
 
             }

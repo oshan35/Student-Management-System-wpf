@@ -56,5 +56,9 @@ namespace Personal_Project
             return parent ?? FindVisualParent<T>(parentObject);
         }
 
+        private void membersDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
