@@ -11,8 +11,7 @@ using Avalonia.Controls;
 using System.Windows;
 using Microsoft.Win32;
 using Personal_Project.Views;
-
-
+using Personal_Project.Views.AlertWindows;
 
 namespace Personal_Project.ViewModels
 {
@@ -65,7 +64,8 @@ namespace Personal_Project.ViewModels
             {
                 image = new BitmapImage(new Uri(d.FileName));
 
-                MessageBox.Show("Imgae successfuly uploded!", "successfull");
+                NotifyWindow imagenotify = new NotifyWindow("Image Uploaded Sucessfully!");
+                imagenotify.Show();
             }
         }
 
@@ -88,7 +88,10 @@ namespace Personal_Project.ViewModels
                 gpa = Gpa
             };
 
-            if(student1 != null)
+            NotifyWindow notify = new NotifyWindow("Student Added Successfully!");
+            notify.ShowDialog();
+
+            if (student1 != null)
             {
                 CloseAction();
 
@@ -107,7 +110,8 @@ namespace Personal_Project.ViewModels
             }
             else
             {
-                MessageBox.Show("Invalid GPA! GPA should be between 0 and 4.0");
+                MessageBoxWindow gpaalrt = new MessageBoxWindow("Invalid GPA!", "GPA value should be between 0 and 4");
+                gpaalrt.ShowDialog();
             }
             return 0;
         }
@@ -120,7 +124,9 @@ namespace Personal_Project.ViewModels
             }
             else
             {
-                MessageBox.Show("Invalid Age!");
+                MessageBoxWindow agealrt = new MessageBoxWindow("Invalid Age Alert!", "Age must be grater than 0 and less than 120!");
+                agealrt.ShowDialog();
+
             }
             return 0;
         }
@@ -129,7 +135,9 @@ namespace Personal_Project.ViewModels
         {
             if (!DateTime.TryParseExact(dob, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out _))
             {
-                MessageBox.Show("Invalid date format. Expected format: yyyy-MM-dd");
+                MessageBoxWindow datealert = new MessageBoxWindow("Invalid Date Format", "Invalid date format. Expected format: yyyy-MM-dd\"");
+                datealert.ShowDialog();
+            
             }
             else
             {

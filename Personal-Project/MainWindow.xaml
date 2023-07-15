@@ -150,7 +150,7 @@
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <StackPanel Orientation="Horizontal">
-                                            <Border Width="40" Height="40" CornerRadius="50" Margin="0 0 20 0" Background="#1098AD">
+                                            <Border Width="40" Height="40" CornerRadius="50" Margin="0 0 20 0" Background="Transparent">
 
                                                 <Image Width="40" Height="40" Margin="1" Source="{Binding image}" />
                                             </Border>

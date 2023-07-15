@@ -7,7 +7,13 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Views\AlertWindows\NotifyWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\EditView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\AlertWindows\MessageBoxWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\StudentRegistrationView.xaml.cs">
@@ -18,7 +24,13 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\AlertWindows\NotifyWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\EditView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AlertWindows\MessageBoxWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\StudentRegistrationView.xaml">

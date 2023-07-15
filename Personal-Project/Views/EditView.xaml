@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
       xmlns:local="clr-namespace:Personal_Project.ViewModels"
-      
+      WindowStartupLocation="CenterScreen"
       mc:Ignorable="d" 
       Height="650" Width="600"
       Title="EditView">
@@ -38,9 +38,9 @@
                
                   
                 <Button Background="Transparent" Command="{Binding EditImageCommand}">
-                    <Border Width="100" Height="100" CornerRadius="50" Background="#1098AD">
+                    <Border Width="100" Height="100" CornerRadius="50" Background="Transparent">
 
-                        <Image Width="60" Height="60"  Source="{Binding Image,UpdateSourceTrigger=PropertyChanged}" />
+                        <Image Width="100" Height="100"  Source="{Binding Image,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" />
                     </Border>
                 </Button>
                     

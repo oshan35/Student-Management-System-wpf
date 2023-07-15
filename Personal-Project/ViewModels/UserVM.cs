@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using Personal_Project.Models;
 using Personal_Project.Views;
+using Personal_Project.Views.AlertWindows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -29,11 +30,11 @@ namespace Personal_Project.ViewModels
         {
 
             studentList= new ObservableCollection<Student>();
-            BitmapImage image1 = new BitmapImage(new Uri("Asserts/1.png", UriKind.Relative));
+            BitmapImage image1 = new BitmapImage(new Uri("D:\\UOR education\\SEM03\\Programming-Project\\Personal-Project\\Personal-Project\\Asserts\\1.png", UriKind.Absolute));
             studentList.Add(new Student("oshan", "nettasinghe", 23, "CE", image1, "1999-05-05", 2.72, "oshan@gmail.com"));
-            BitmapImage image2 = new BitmapImage(new Uri("Asserts/2.png", UriKind.Relative));
+            BitmapImage image2 = new BitmapImage(new Uri("D:\\UOR education\\SEM03\\Programming-Project\\Personal-Project\\Personal-Project\\Asserts\\2.png", UriKind.Absolute));
             studentList.Add(new Student("Nehara", "Tharushi", 23, "CE", image2, "2000-05-05", 3.92, "nehara@gmail.com"));
-            BitmapImage image3 = new BitmapImage(new Uri("Asserts/3.png", UriKind.Relative));
+            BitmapImage image3 = new BitmapImage(new Uri("D:\\UOR education\\SEM03\\Programming-Project\\Personal-Project\\Personal-Project\\Asserts\\3.png", UriKind.Absolute));
             studentList.Add(new Student("Ashen", "Nethsara", 23, "CE", image3, "1999-08-08", 3.0, "ashen@gmail.com"));
 
 
@@ -51,11 +52,11 @@ namespace Personal_Project.ViewModels
 
             if (sudentRegVM.student1 != null)
             {
-                MessageBox.Show(sudentRegVM.student1.firstname);
+                
 
                 StudentList.Add(sudentRegVM.student1);
 
-                MessageBox.Show("User Added Successfully!");
+                
             }
 
 
@@ -73,11 +74,13 @@ namespace Personal_Project.ViewModels
 
                 StudentList.Remove(SelectedStudent);
 
-                MessageBox.Show($"{name} {last} is Deleted ");
+                NotifyWindow notifydelete = new NotifyWindow($"{name} {last} deleted!");
+                notifydelete.Show();
             }
             else
             {
-                MessageBox.Show("Select a student before Deleting");
+                MessageBoxWindow deletealert = new MessageBoxWindow("Item Not Selected!", "Select a Student that you want to delete");
+                deletealert.Show();
             }
         }
 
@@ -98,11 +101,13 @@ namespace Personal_Project.ViewModels
                 StudentList.RemoveAt(index);
                 StudentList.Insert(index, editVM.editedStudent);
 
+              
 
             }
             else
             {
-                MessageBox.Show("Select a Student");
+                MessageBoxWindow editalert = new MessageBoxWindow("Item Not Selected!", "Select a Student from Data Grid before editing");
+                editalert.Show();
             }
 
         }

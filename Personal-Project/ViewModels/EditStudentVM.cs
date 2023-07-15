@@ -1,6 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Personal_Project.Models;
+using Personal_Project.Views;
+using Personal_Project.Views.AlertWindows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -74,7 +76,10 @@ namespace Personal_Project.ViewModels
             editedStudent.email = Email;
             editedStudent.gpa= Gpa;
 
-            MessageBox.Show("Changes Sucessfully saved!");
+            MessageBoxWindow alert = new MessageBoxWindow("Saved!", "Edited details were saved!");
+            alert.ShowDialog();
+
+            CloseAction();
         }
 
         [RelayCommand]
@@ -85,9 +90,10 @@ namespace Personal_Project.ViewModels
             d.FilterIndex = 1;
             if (d.ShowDialog() == true)
             {
-                image = new BitmapImage(new Uri(d.FileName));
+                Image = new BitmapImage(new Uri(d.FileName));
 
-                MessageBox.Show("Imgae successfuly uploded!", "successfull");
+                NotifyWindow imagenotify = new NotifyWindow("Image Uploaded Sucessfully!");
+                imagenotify.Show();
             }
         }
 

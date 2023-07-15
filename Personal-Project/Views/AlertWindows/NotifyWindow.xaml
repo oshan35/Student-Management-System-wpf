@@ -1,0 +1,47 @@
+﻿<Window x:Class="Personal_Project.Views.AlertWindows.NotifyWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Personal_Project.Views.AlertWindows"
+        xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent"
+        Loaded="Window_Loaded"
+        Title="Alert" Height="200" Width="270">
+
+
+
+
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+
+
+        <Border CornerRadius="20" Grid.RowSpan="2"  BorderBrush="Black" BorderThickness="0.5" Background="White">
+
+        </Border>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" HorizontalAlignment="Center">
+            <Border Width="70" Height="70" CornerRadius="50">
+
+                <Image Width="70" Height="70" Margin="1" Source="D:\UOR education\SEM03\Programming-Project\Personal-Project\Personal-Project\Asserts\TickMark.png" />
+            </Border>
+        </StackPanel>
+        
+        <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Center">
+            
+            <TextBlock  TextWrapping="Wrap" FontWeight="Bold" MaxWidth="200" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0"  Margin="20" x:Name="MessageBox"/>
+        </StackPanel>
+
+
+
+
+    </Grid>
+</Window>
