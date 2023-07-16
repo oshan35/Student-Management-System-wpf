@@ -62,7 +62,7 @@ namespace Personal_Project.ViewModels
             d.FilterIndex = 1;
             if (d.ShowDialog() == true)
             {
-                image = new BitmapImage(new Uri(d.FileName));
+                Image = new BitmapImage(new Uri(d.FileName));
 
                 NotifyWindow imagenotify = new NotifyWindow("Image Uploaded Sucessfully!");
                 imagenotify.Show();
@@ -82,6 +82,7 @@ namespace Personal_Project.ViewModels
                 firstname = Firstname,
                 lastname = Lastname,
                 age = Age,
+                dateOfBirth = DateOfBirth,
                 department = Department,
                 image = Image,
                 email = Email,

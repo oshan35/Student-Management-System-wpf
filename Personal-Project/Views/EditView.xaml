@@ -20,6 +20,59 @@
 
 
     <Grid Background="White">
+        <Border Grid.RowSpan="4">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0 0" EndPoint="1 1">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="LightGray" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Canvas>
+                <Rectangle Width="158" Height="518" Fill="#9C85F7" Canvas.Left="200" Canvas.Top="-185" RenderTransformOrigin="0.183,0.489" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="120"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+
+                <Ellipse Width="157" Height="126" Fill="#9C85F7" RenderTransformOrigin="1.103,-0.158" Canvas.Top="379" Canvas.Left="269" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="120"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+                <Rectangle Width="169" Height="518" Fill="#9C85F7" Canvas.Left="-63" Canvas.Top="-79" RenderTransformOrigin="0.183,0.489" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Rectangle.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="120"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Rectangle.RenderTransform>
+                </Rectangle>
+                <Ellipse Width="168" Height="126" Fill="#9C85F7" RenderTransformOrigin="1.103,-0.158" Canvas.Top="481" Canvas.Left="-30" HorizontalAlignment="Left" VerticalAlignment="Top">
+                    <Ellipse.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="120"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Ellipse.RenderTransform>
+                </Ellipse>
+            </Canvas>
+
+        </Border>
 
         <Grid Margin="30 20 20 20">
             <Grid.RowDefinitions>
@@ -35,18 +88,18 @@
 
             <TextBlock Text="Edit Student Details" VerticalAlignment="Center" HorizontalAlignment="Center" Style="{StaticResource text}"  Grid.Row="0"  Margin="0 10 0 10"/>
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
-               
-                  
+
+
                 <Button Background="Transparent" Command="{Binding EditImageCommand}">
                     <Border Width="100" Height="100" CornerRadius="50" Background="Transparent">
 
                         <Image Width="100" Height="100"  Source="{Binding Image,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" />
                     </Border>
                 </Button>
-                    
-               
+
+
             </StackPanel>
-            
+
             <Grid Grid.Row="2" Margin="0 35 0 0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>

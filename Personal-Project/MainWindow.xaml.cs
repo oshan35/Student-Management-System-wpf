@@ -60,5 +60,10 @@ namespace Personal_Project
         {
 
         }
+
+        private void membersDataGrid_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

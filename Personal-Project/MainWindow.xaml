@@ -142,7 +142,7 @@
 
 
 
-                    <DataGrid  RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" ItemsSource="{Binding StudentList}" SelectedItem="{Binding SelectedStudent, UpdateSourceTrigger=PropertyChanged}">
+                    <DataGrid  RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" x:Name="membersDataGrid" Style="{DynamicResource DataGridStyle1}" ItemsSource="{Binding StudentList}" SelectedItem="{Binding SelectedStudent, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="membersDataGrid_SelectionChanged_1">
                         <DataGrid.Columns>
 
                             <DataGridTemplateColumn Header="Name" IsReadOnly="True" Width="1.75*">
